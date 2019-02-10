@@ -61,7 +61,7 @@ module.exports = app => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                uri: 'http://localhost:8080/api/installations/' + installation_id,
+                uri: process.env.API_URL + '/api/installations/' + installation_id,
                 body: JSON.stringify(context.payload)
             },
             (error, response, body) => {
@@ -79,7 +79,7 @@ module.exports = app => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                uri: 'http://localhost:8080/api/campaigns',
+                uri: process.env.API_URL + '/api/campaigns',
                 qs: { github_url: github_url },
                 body: JSON.stringify({ installation_id: installation_id })
             },
